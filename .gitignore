@@ -15,6 +15,7 @@ migrate_working_dir/
 
 # new
 lib/firebase_options.dart
+.env
 
 # IntelliJ related
 *.iml
