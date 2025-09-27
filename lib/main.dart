@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
-import 'package:user_admin/controllers/auth_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:user_admin/screens/login_screen.dart';
 import 'firebase_options.dart';
-import 'package:user_admin/screens/register_screen.dart';
 
 
 final logger = Logger();
 void main() async{
+   logger.d("Before App started");
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -16,7 +16,7 @@ void main() async{
   // logger.d("App started");
   runApp(const MyApp());
   // logger.d("App Before");
-  Get.put(AuthController());
+  // Get.put(AuthController());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'only admin can register user',      
-      home: RegisterScreen(),
+      home: LoginScreen(),
     );
   }
 }

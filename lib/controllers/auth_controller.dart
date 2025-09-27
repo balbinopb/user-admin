@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:user_admin/main.dart';
 import 'package:user_admin/screens/admin_home_screen.dart';
 import 'package:user_admin/screens/user_home_screen.dart';
 
@@ -21,8 +20,6 @@ class AuthController extends GetxController {
         email: emailController.text.trim(),
         password: pwController.text.trim(),
       );
-      logger.d("Successs");
-      // Get.snackbar('Success', 'User registered: ${credential}');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         Get.snackbar('Error', 'The password provided is too weak.');
@@ -46,10 +43,8 @@ class AuthController extends GetxController {
         final email = credential.user!.email;
 
         if (adminEmails.contains(email)) {
-          logger.d("enter to admin");
           Get.to(() => AdminHomeScreen());
         } else {
-          logger.d("enter to USEr");//get this
           Get.to(() => UserHomeScreen());
         }
       }

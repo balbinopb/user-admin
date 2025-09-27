@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:user_admin/controllers/auth_controller.dart';
-import 'package:user_admin/screens/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   final AuthController c = Get.find();
